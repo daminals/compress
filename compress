@@ -1,7 +1,5 @@
 #!/bin/bash
 
-cd "$(dirname "$0")"
-
 read -p 'uncompressed file name: ' uncomp
 read -p 'compressed file name: ' comp
 read -p 'compression rate: ' cpr
