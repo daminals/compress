@@ -10,4 +10,7 @@ Just a faster way to check my logs
 
 ## Save
 
-Automatically commits (and allows me to set a commit message) and runs through any remote and automatically pushes. 
+Automatically commits (and allows me to set a commit message) and runs through any remote and automatically pushes.
+
+# How do you do this for yourself?
+Make a folder in your root called bin and throw your scripts there. Then you can use them anywhere in your computer without even having to use ./ 
