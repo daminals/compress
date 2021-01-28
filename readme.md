@@ -1,5 +1,7 @@
 # Storing all my handy-dandy shell script commands
 
+It's nice to work quickly
+
 ## Compress
 
 I used this ffmpeg command a lot, quick and dirty way to speed compressing videos by only including the important bits
