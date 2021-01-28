@@ -2,15 +2,15 @@
 
 It's nice to work quickly
 
-## Compress
+### Compress
 
 I used this ffmpeg command a lot, quick and dirty way to speed compressing videos by only including the important bits
 
-## Logs
+### Logs
 
 Just a faster way to check my logs
 
-## Save
+### Save
 
 Automatically commits (and allows me to set a commit message) and runs through any remote and automatically pushes.
 
