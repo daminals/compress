@@ -1,11 +1,11 @@
-#!/bin/bash 
-read -p 'commit name: ' commit
+#!/bin/bash
+read -p $'\e[1;32mcommit name\e[0m: ' commit
 
 if [ -z "$commit" ]
 then
     commit="autosave"
 fi
-git commit -am $commit
+git commit -am "$commit"
 
 output=$(git remote)
 pusharray=($output)
