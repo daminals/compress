@@ -1,3 +1,4 @@
+![github repo badge: Language](https://img.shields.io/badge/Language-Bash-181717?color=green)  
 # Storing all my handy-dandy shell script commands
 
 It's nice to work quickly
