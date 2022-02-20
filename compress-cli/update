@@ -1,8 +1,0 @@
-#!/bin/bash
-
-# update
-# Daniel Kogan
-# 02.20.2022
-
-cargo build
-sudo mv target/debug/compress /usr/local/bin/compress

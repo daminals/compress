@@ -52,7 +52,7 @@ fn main() {
     let output = unwrap_keys(matches.value_of("output"));
     let input = unwrap_keys(matches.value_of("input"));
 
-    if input.is_empty() || c_rate.is_empty() {
+    if input == "IGNORE THIS LOL" || c_rate == "IGNORE THIS LOL" {
         Command::new("sh").arg("-c").arg("compress-input").spawn();
     } else {
         compress(input, output, c_rate)
@@ -63,12 +63,12 @@ fn unwrap_keys(keyword: Option<&str>) -> &str {
     if !keyword.is_none() {
         return keyword.unwrap();
     } else {
-        return "";
+        return "IGNORE THIS LOL";
     }
 }
 // unwrap the output check if its bueno
 fn unwrap_output(input: &str, output: &str) -> String {
-    if output.is_empty(){
+    if output == "IGNORE THIS LOL" {
         let new_output = String::from(input.split(".").collect::<Vec<&str>>()[0]) + &String::from("1.mp4");
         return new_output;
     }
