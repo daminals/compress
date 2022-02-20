@@ -80,13 +80,22 @@ fn unwrap_output(input: &str, output: &str) -> String {
 fn compress(input: &str, output: &str, c_rate: &str) {
     let new_output = unwrap_output(&input, output);
     let compress_cmd = format!("ffmpeg -i {} -vcodec libx264 -crf {} {}", input, c_rate, new_output);
-    let compress_video = Command::new("sh").arg("-c").arg(compress_cmd).spawn();
+    let mut compress_video = Command::new("sh")
+                                        .arg("-c")
+                                        .arg(compress_cmd)
+                                        .stdout(Stdio::piped())
+                                        .spawn()
+                                        .unwrap();
+    //let video_output = compress_video.stdout.expect("ffmpeg command failed to start");    
+    let finished = compress_video.wait()
+                 .expect("failed to wait on child");
+
+    assert!(finished.success());
 }
 fn return_user_input() -> String {
     let mut input_output = String::new();
     io::stdin()
     .read_line(&mut input_output)
     .expect("Failed to read line");
-    
-    input_output.trim().to_string()
+    return input_output.trim().to_string()
 }
