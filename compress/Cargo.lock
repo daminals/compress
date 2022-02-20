@@ -68,7 +68,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "compress-cli"
+name = "compress"
 version = "0.1.0"
 dependencies = [
  "clap",

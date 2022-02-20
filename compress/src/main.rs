@@ -31,7 +31,7 @@ fn main() {
         .arg(
             Arg::new("compress") // add key
                 .short('c')
-                .long("compres")
+                .long("compress")
                 .takes_value(true)
                 .help("the compression rate")
         )
@@ -49,11 +49,11 @@ fn main() {
     let input = unwrap_keys(matches.value_of("input"));
 
     if input == "IGNORE THIS LOL" || c_rate == "IGNORE THIS LOL" {
-        print!("uncompressed file name: ");
+        println!("uncompressed file name: ");
         let input = return_user_input();
-        print!("compressed file name: ");
+        println!("compressed file name: ");
         let output = return_user_input();
-        print!("compression rate: ");
+        println!("compression rate: ");
         let c_rate = return_user_input();
         compress(&input, &output, &c_rate);
     } else {

@@ -1,4 +1,5 @@
 #!/bin/bash
+## DEPRECATED
 
 read -p 'uncompressed file name: ' uncomp
 read -p 'compressed file name: ' comp
