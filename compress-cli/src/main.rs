@@ -6,12 +6,8 @@
 
 use clap::{App, Arg};
 use std::fmt;
-use std::fs;
-use std::fs::metadata;
-use std::path::Path;
+use std::{str, io};
 use std::process::{Command, Stdio, exit};
-use std::env;
-use std::collections::HashMap;
 
 fn main() {
     let matches = App::new("Video Compressor")
@@ -53,7 +49,13 @@ fn main() {
     let input = unwrap_keys(matches.value_of("input"));
 
     if input == "IGNORE THIS LOL" || c_rate == "IGNORE THIS LOL" {
-        Command::new("sh").arg("-c").arg("compress-input").spawn();
+        print!("uncompressed file name: ");
+        let input = return_user_input();
+        print!("compressed file name: ");
+        let output = return_user_input();
+        print!("compression rate: ");
+        let c_rate = return_user_input();
+        compress(&input, &output, &c_rate);
     } else {
         compress(input, output, c_rate)
     }
@@ -79,4 +81,12 @@ fn compress(input: &str, output: &str, c_rate: &str) {
     let new_output = unwrap_output(&input, output);
     let compress_cmd = format!("ffmpeg -i {} -vcodec libx264 -crf {} {}", input, c_rate, new_output);
     let compress_video = Command::new("sh").arg("-c").arg(compress_cmd).spawn();
+}
+fn return_user_input() -> String {
+    let mut input_output = String::new();
+    io::stdin()
+    .read_line(&mut input_output)
+    .expect("Failed to read line");
+    
+    input_output.trim().to_string()
 }
